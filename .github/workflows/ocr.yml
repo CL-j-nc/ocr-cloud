@@ -1,0 +1,12 @@
+name: OCR Self-hosted Test
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: [self-hosted, macOS, X64]
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "self-hosted runner is working"
