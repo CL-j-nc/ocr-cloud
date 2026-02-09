@@ -1,12 +1,19 @@
-name: OCR Self-hosted Test
+name: OCR Self-hosted Sanity Check
 
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
 
 jobs:
-  test:
+  sanity:
     runs-on: [self-hosted, macOS, X64]
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "self-hosted runner is working"
+      - name: Print system info
+        run: |
+          uname -a
+          whoami
+          pwd
+
+      - name: Test shell
+        run: echo "runner is healthy"
