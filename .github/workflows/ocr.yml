@@ -9,11 +9,11 @@ jobs:
   sanity:
     runs-on: [self-hosted, macOS, X64]
     steps:
-      - name: Print system info
+      - name: Force bash sanity
+        shell: bash
         run: |
+          set -eux
           uname -a
           whoami
           pwd
-
-      - name: Test shell
-        run: echo "runner is healthy"
+          echo "runner sanity OK"
