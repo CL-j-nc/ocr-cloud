@@ -1,19 +1,14 @@
-name: OCR Self-hosted Sanity Check
+name: OCR Runner Sanity
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ main ]
 
 jobs:
   sanity:
-    runs-on: [self-hosted, macOS, X64]
+    runs-on: [self-hosted, macOS, ARM64, ocr-runner]
     steps:
-      - name: Force bash sanity
+      - name: sanity check
         shell: bash
         run: |
-          set -eux
-          uname -a
-          whoami
-          pwd
-          echo "runner sanity OK"
+          echo "runner OK"
+          uname -m
